@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default class News extends Component {
   static defaultProps = {
     country: 'in',
-    pageSize: 15,
+    // pageSize: 15,
     category: 'general'
   }
   static PropsTypes = {
@@ -23,7 +23,7 @@ export default class News extends Component {
     }
     console.log("hello this is a constructor");
   }
-  async updateNews(){
+  async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a9fc17d152794e12a13dd88c87770fe2&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true })
     let data = await fetch(url);
@@ -35,12 +35,13 @@ export default class News extends Component {
   async componentDidMount() {
     this.updateNews();
   }
+
   handlePrevClick = async () => {
-    this.setState({page: this.state.page - 1, })
+    this.setState({ page: this.state.page - 1 })
     this.updateNews();
   }
   handleNextClick = async () => {
-    this.setState({page: this.state.page + 1,})
+    this.setState({ page: this.state.page + 1 })
     this.updateNews();
   }
   render() {
