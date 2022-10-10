@@ -34,7 +34,7 @@ export default function News(props){
         document.title = `${toTitleCase(props.category)} -TheNewsG`;
     updateNews()
 
-  },[]);
+  },[])// eslint-disable-line react-hooks/exhaustive-deps
  
   // const handlePrevClick = async () => {
   //   this.setState({ page: this.state.page - 1 })
